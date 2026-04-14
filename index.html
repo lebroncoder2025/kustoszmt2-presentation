@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KustoszMT2 – Prywatny Serwer Metin2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=MedievalSharp&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- PARTICLES CANVAS -->
+<canvas id="particles" aria-hidden="true"></canvas>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="server-badge">PRYWATNY SERWER</div>
+    <h1 class="hero-title">
+      <span class="title-kustosz">Kustosz</span><span class="title-mt2">MT2</span>
+    </h1>
+    <p class="hero-subtitle">Klasyczny Metin2 &bull; 2015 Edition &bull; Odświeżony Drop</p>
+    <div class="countdown-wrapper">
+      <p class="countdown-label">Start serwera za:</p>
+      <div class="countdown" id="countdown">
+        <div class="cd-block"><span id="cd-days">00</span><small>dni</small></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-block"><span id="cd-hours">00</span><small>godz</small></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-block"><span id="cd-minutes">00</span><small>min</small></div>
+        <div class="cd-sep">:</div>
+        <div class="cd-block"><span id="cd-seconds">00</span><small>sek</small></div>
+      </div>
+      <p class="launch-date">Piątek, 17 Kwietnia 2026 &bull; godz. 19:00</p>
+    </div>
+    <div class="hero-btns">
+      <a href="#jak-zagrac" class="btn btn-primary">Jak zagrać?</a>
+      <a href="#zmiany" class="btn btn-secondary">Zmiany na serwerze</a>
+    </div>
+  </div>
+  <div class="scroll-arrow" onclick="document.getElementById('info-strip').scrollIntoView({behavior:'smooth'})">&#8964;</div>
+</header>
+
+<!-- INFO STRIP -->
+<section class="info-strip" id="info-strip">
+  <div class="info-item">
+    <span class="info-icon">⚔</span>
+    <span class="info-val">EXP x10</span>
+  </div>
+  <div class="info-sep"></div>
+  <div class="info-item">
+    <span class="info-icon">💰</span>
+    <span class="info-val">Yang x5</span>
+  </div>
+  <div class="info-sep"></div>
+  <div class="info-item">
+    <span class="info-icon">🗓</span>
+    <span class="info-val">2 tygodnie</span>
+    <span class="info-sub">17.04 – 03.05.2026</span>
+  </div>
+  <div class="info-sep"></div>
+  <div class="info-item">
+    <span class="info-icon">🏆</span>
+    <span class="info-val">Turniej PvP</span>
+    <span class="info-sub">finał 03.05.2026</span>
+  </div>
+</section>
+
+<!-- ZMIANY -->
+<section class="section section-dark" id="zmiany">
+  <div class="container">
+    <h2 class="section-title">Zmiany Względem Oryginału <span class="year-badge">2015</span></h2>
+    <p class="section-sub">Klasyczny klimat Metin2 z ulepszonymi mechanikami i bogatszym dropem</p>
+
+    <div class="changes-grid">
+
+      <div class="change-card featured">
+        <div class="change-icon">✨</div>
+        <h3>Blask z Metinów</h3>
+        <p>Im wyższy poziom metina, tym więcej blasków:</p>
+        <ul class="change-list">
+          <li>Metiny <strong>5–35</strong>: 1 blask</li>
+          <li>Metiny <strong>40–50</strong>: 2 blaski</li>
+          <li>Wyższe: proporcjonalnie więcej</li>
+        </ul>
+        <div class="change-bonus">Z blasków: zmianki, bodźce, pelerynki, egzo, rady, błogosławieństwa, ulepszacze, mikstura mądrości</div>
+      </div>
+
+      <div class="change-card">
+        <div class="change-icon">🎁</div>
+        <h3>Skrzynia z Kostiumem</h3>
+        <p><strong>10% szans</strong> że zamiast blasku poleci skrzynia z losowym kostiumem lub fryzurą na <strong>24h</strong></p>
+      </div>
+
+      <div class="change-card">
+        <div class="change-icon">🐉</div>
+        <h3>Specjalne Moby (M1/M2)</h3>
+        <p>Lykos, Bera, Goo-Pae i inne – dropią skrzynie z <strong>10% szansą na wierzchowca</strong> (90% sztabki yang)</p>
+      </div>
+
+      <div class="change-card">
+        <div class="change-icon">⚔</div>
+        <h3>Mini-Bossy M1</h3>
+        <p>Mu-Rang i inni mini-bossowie dropią <strong>bronie i zbroje na poziomach 9–20</strong></p>
+      </div>
+
+      <div class="change-card">
+        <div class="change-icon">👑</div>
+        <h3>Bestiariusz</h3>
+        <p>Podkręcony drop z bestów + <strong>bronie 30lvl z Best. Kapitana</strong></p>
+      </div>
+
+      <div class="change-card">
+        <div class="change-icon">📚</div>
+        <h3>Szybszy Awans</h3>
+        <ul class="change-list">
+          <li>M1 → G1: tylko <strong>10 książek</strong></li>
+          <li>G1 → P: tylko <strong>10 kamieni</strong></li>
+        </ul>
+      </div>
+
+      <div class="change-card">
+        <div class="change-icon">💎</div>
+        <h3>Opaski Zapomnienia</h3>
+        <p>Drop z Mi-Jung, Eun-Jung, Se-Rang, Jin-Hee i ich <strong>bezdusznych odpowiedników</strong></p>
+      </div>
+
+      <div class="change-card">
+        <div class="change-icon">🦴</div>
+        <h3>Skrzynie z Bossów</h3>
+        <p>Dodatkowe skrzynie – dropią <strong>małże/perły lub sztabki</strong>. Im trudniejszy boss, tym lepsza zawartość</p>
+      </div>
+
+      <div class="change-card">
+        <div class="change-icon">💀</div>
+        <h3>Szkielet Reapera</h3>
+        <p>Ze szkatu Reapera dropią wyłącznie <strong>stalki i bronie 70lvl+</strong></p>
+      </div>
+
+      <div class="change-card">
+        <div class="change-icon">🎒</div>
+        <h3>Skrzynie za Poziom</h3>
+        <p>Zmieniony drop ze skrzyń za osiągnięty poziom – <strong>bodźce, zmianki, rady, kamienie duchowe</strong> w zależności od levela</p>
+      </div>
+
+      <div class="change-card">
+        <div class="change-icon">🏪</div>
+        <h3>Nowy NPC</h3>
+        <p><strong>Pani z Żabki</strong> – sprzedaje przydatne przedmioty z Item Shopu i nie tylko</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAPY -->
+<section class="section section-dark" id="mapy">
+  <div class="container">
+    <h2 class="section-title">Mapy i Miasta</h2>
+    <p class="section-sub">Odkrywaj dwie główne mapy pełne przygód i wyzwań</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+      <!-- M1 -->
+      <div style="background: linear-gradient(135deg, rgba(232,200,64,0.1), rgba(139,10,10,0.1)); border: 2px solid #E8C840; border-radius: 12px; padding: 2rem; text-align: center;">
+        <h3 style="color: #E8C840; font-size: 24px; margin: 0 0 1rem 0;">🗺 MAPA M1 (Medena)</h3>
+        <p style="margin: 1rem 0; color: #F0D9B0;">Początkowe tereny dla nowych graczy</p>
+        <ul style="text-align: left; color: #F0D9B0; line-height: 1.8; list-style: none; padding: 0;">
+          <li>🏞 <strong>Niebiańskie Pola</strong> – początkowe tereny, Lv 1–20</li>
+          <li>⛏ <strong>Płaskowyż Chwały</strong> – górnicze obszary, Lv 10–30</li>
+          <li>🌲 <strong>Las Mroku</strong> – niebezpieczne tereny, Lv 25–40</li>
+          <li>🐉 <strong>Kopalnie Smoka</strong> – zaawansowane, Lv 40–70</li>
+        </ul>
+      </div>
+
+      <!-- M2 -->
+      <div style="background: linear-gradient(135deg, rgba(26,26,106,0.1), rgba(75,26,186,0.1)); border: 2px solid #8B5CF6; border-radius: 12px; padding: 2rem; text-align: center;">
+        <h3 style="color: #8B5CF6; font-size: 24px; margin: 0 0 1rem 0;">⚔ MAPA M2 (Shinsoo)</h3>
+        <p style="margin: 1rem 0; color: #F0D9B0;">Zaawansowane tereny dla doświadczonych graczy</p>
+        <ul style="text-align: left; color: #F0D9B0; line-height: 1.8; list-style: none; padding: 0;">
+          <li>👥 <strong>PvP główne</strong> – intensywne walki międzygraczy, Lv 45+</li>
+          <li>🏰 <strong>Zamek Biały</strong> – fortyfikacje i bitwy gildii</li>
+          <li>💎 <strong>Tereny premium</strong> – najlepszy drop, Lv 70+</li>
+          <li>⭐ <strong>Dungeons M2</strong> – instancje grupowe z wyzwaniami</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOSSY -->
+<section class="section section-mid" id="bossy">
+  <div class="container">
+    <h2 class="section-title">Bossy na Serwerze</h2>
+    <p class="section-sub">Klasyczni bossowie Metin2 z ulepszonym dropem skrzyń i nagrodami</p>
+
+    <div class="boss-tabs">
+      <button class="tab-btn active" data-tab="bossy-glowne">Główni Bossowie</button>
+      <button class="tab-btn" data-tab="bossy-mini">Mini-Bossowie</button>
+      <button class="tab-btn" data-tab="bossy-specjalne">Specjalni</button>
+    </div>
+
+    <div class="tab-content active" id="bossy-glowne">
+      <div class="boss-grid">
+        <div class="boss-card">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#0a2a0a,#1a5a1a)">🐢</div>
+          <h4>Olbrzymi Żółw</h4>
+          <span class="boss-lvl">Lv 35–45</span>
+          <p>Skrzynie z małżami i perłami, dodatkowy drop walut</p>
+        </div>
+        <div class="boss-card">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#1a1a0a,#4a3a00)">🦂</div>
+          <h4>Dziewięć Ogonów</h4>
+          <span class="boss-lvl">Lv 55–65</span>
+          <p>Cenny boss z G1, bogaty drop skrzynek i sztabek</p>
+        </div>
+        <div class="boss-card">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#1a0a2a,#4a1a8a)">🔥</div>
+          <h4>Ognisty Król</h4>
+          <span class="boss-lvl">Lv 60–70</span>
+          <p>Drop broni wyższego poziomu, skrzynie z perłami</p>
+        </div>
+        <div class="boss-card">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#0a0a2a,#1a1a6a)">👻</div>
+          <h4>Zjawa Żółtego Tygrysa</h4>
+          <span class="boss-lvl">Lv 65–75</span>
+          <p>Skrzynie z ekwipunkiem, szansa na drogie sztabki</p>
+        </div>
+        <div class="boss-card">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#300000,#cc4400)">💀</div>
+          <h4>Reaper</h4>
+          <span class="boss-lvl">Lv 70–80</span>
+          <p>Potężny elitarny boss, drop broni 70lvl i cennych sztabek</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="tab-content" id="bossy-mini">
+      <div class="boss-grid">
+        <div class="boss-card">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#2a1a00,#6a4a00)">⚔</div>
+          <h4>Best. Kapitan</h4>
+          <span class="boss-lvl">Mini-Boss M1</span>
+          <p>Drop broni <strong>30lvl</strong> – kluczowy dla graczy w M1</p>
+        </div>
+        <div class="boss-card">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#0a2a0a,#2a5a2a)">🗡</div>
+          <h4>Mu-Rang</h4>
+          <span class="boss-lvl">Mini-Boss M1</span>
+          <p>Drop broni i zbroi na poziomach <strong>9–20</strong></p>
+        </div>
+        <div class="boss-card">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#2a0a0a,#5a2a2a)">🐗</div>
+          <h4>Lykos</h4>
+          <span class="boss-lvl">Specjalny M1/M2</span>
+          <p>10% szansa na wierzchowca ze skrzyni, 90% sztabki yang</p>
+        </div>
+        <div class="boss-card">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#0a0a2a,#2a2a5a)">🐻</div>
+          <h4>Bera</h4>
+          <span class="boss-lvl">Specjalny M1/M2</span>
+          <p>Skrzynie ze specjalnym dropem, szansa na wierzchowca</p>
+        </div>
+        <div class="boss-card">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#1a2a0a,#3a5a1a)">🐊</div>
+          <h4>Goo-Pae</h4>
+          <span class="boss-lvl">Specjalny M1/M2</span>
+          <p>Specjalny mob M2, drop skrzynia z wierzchowcem</p>
+        </div>
+        <div class="boss-card">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#2a1a2a,#5a3a5a)">🧟</div>
+          <h4>Mi-Jung / Eun-Jung</h4>
+          <span class="boss-lvl">Specjalny</span>
+          <p>Drop <strong>opasek zapomnienia</strong> – wersja normalna i bezduszna</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="tab-content" id="bossy-specjalne">
+      <div class="boss-grid">
+        <div class="boss-card boss-elite">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#3a0000,#aa0000)">🔴</div>
+          <h4>Beran-Setaou</h4>
+          <span class="boss-lvl boss-lvl-elite">Boss Specjalny</span>
+          <p>Jeden z najtędniejszych bossów – ogromna szansa na drogie sztabki i perły</p>
+        </div>
+        <div class="boss-card boss-elite">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#1a0030,#6600aa)">🐲</div>
+          <h4>Czerwony Smok</h4>
+          <span class="boss-lvl boss-lvl-elite">Boss Specjalny</span>
+          <p>Legendarny boss, najlepszy drop skrzyń z zawartością premium</p>
+        </div>
+        <div class="boss-card boss-elite">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#001a30,#0066aa)">🌀</div>
+          <h4>Hae-Tae</h4>
+          <span class="boss-lvl boss-lvl-elite">Boss Specjalny</span>
+          <p>Skrzynie z najlepszymi perłami i sztabkami, elitowy drop</p>
+        </div>
+        <div class="boss-card boss-elite">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#001a00,#006600)">🌿</div>
+          <h4>Olbrzymi Duch Drzewa</h4>
+          <span class="boss-lvl boss-lvl-elite">Boss Specjalny</span>
+          <p>Rzadki specjalny boss z wyjątkowym dropem przedmiotów</p>
+        </div>
+        <div class="boss-card boss-elite">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#2a2a00,#8a8a00)">💛</div>
+          <h4>Elitarny Dziewięć Ogonów</h4>
+          <span class="boss-lvl boss-lvl-elite">Boss Specjalny</span>
+          <p>Elitarna wersja, najwyższa szansa na perły i drogie sztabki</p>
+        </div>
+        <div class="boss-card boss-elite">
+          <div class="boss-avatar" style="background:linear-gradient(135deg,#300000,#cc4400)">💀</div>
+          <h4>Szkielet Reapera</h4>
+          <span class="boss-lvl boss-lvl-elite">Boss Specjalny</span>
+          <p>Drop wyłącznie <strong>stalki i bronie 70lvl+</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JAK ZAGRAC -->
+<section class="section section-dark" id="jak-zagrac">
+  <div class="container">
+    <h2 class="section-title">Jak Zagrać?</h2>
+    <p class="section-sub">Skonfiguruj Hamachi i pobierz klienta – gotowe w kilka minut</p>
+
+    <div class="steps-wrapper">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h3>Pobierz klienta gry</h3>
+          <p>Plik ważący <strong>1.04 GB</strong> – pobierz i rozpakuj w dowolnym folderze.</p>
+          <a href="https://mega.nz/file/LhRl3AiZ#rgD_OtUM7xmcuDec30MI2gBqDxlVQh0Qd8rLU7mq-Uk" target="_blank" rel="noopener" class="btn btn-primary btn-sm">
+            ⬇ Pobierz z MEGA
+          </a>
+        </div>
+      </div>
+
+      <div class="step-arrow">▼</div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h3>Zainstaluj Hamachi</h3>
+          <p>Hamachi to bezpłatny VPN umożliwiający połączenie z prywatnym serwerem.</p>
+          <a href="https://vpn.net/" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
+            ⬇ Pobierz Hamachi
+          </a>
+        </div>
+      </div>
+
+      <div class="step-arrow">▼</div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h3>Dołącz do sieci Hamachi</h3>
+          <p>Po zainstalowaniu i stworzeniu konta dołącz do jednej z dostępnych sieci:</p>
+          <div class="hamachi-box">
+            <div class="hamachi-row">
+              <span class="hamachi-label">ID sieci i hasło:</span>
+              <span class="hamachi-val"><strong>Dostępne na discordzie</strong></span>
+            </div>
+          </div>
+          <p class="note">⚠ Wszystkie szczegóły techniczne znajdziesz na naszym serwerze Discord</p>
+        </div>
+      </div>
+
+      <div class="step-arrow">▼</div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h3>Odblokuj zaporę systemu Windows</h3>
+          <p>Aby Hamachi działał poprawnie, musisz dodać wyjątek w zaporze sieciowej.</p>
+          <a href="https://docs.google.com/document/d/1cvYIYoIY5vulPrjekCQbGqRz5tHq1bDX8UQlmROqM2g/edit?usp=sharing" target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
+            📋 Instrukcja konfiguracji zapory
+          </a>
+        </div>
+      </div>
+
+      <div class="step-arrow">▼</div>
+
+      <div class="step step-final">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <h3>Zarejestruj konto i zagraj!</h3>
+          <p>W dniu startu serwera (<strong>17.04.2026</strong>), około <strong>2 godziny przed</strong> godziną 19:00, uruchomię stronę rejestracji.</p>
+          <div class="register-box">
+            <span class="register-label">Adres strony rejestracji:</span>
+            <span class="register-url">Podany na discordzie w dniu startu</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section section-mid">
+  <div class="container">
+    <h2 class="section-title">Harmonogram</h2>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot tl-dot-gold"></div>
+        <div class="tl-date">17.04.2026 · 17:00</div>
+        <div class="tl-text">Otwarcie strony rejestracji konta</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot tl-dot-red"></div>
+        <div class="tl-date">17.04.2026 · 19:00</div>
+        <div class="tl-text"><strong>🚀 Start serwera KustoszMT2</strong></div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot tl-dot-normal"></div>
+        <div class="tl-date">17.04 – 03.05.2026</div>
+        <div class="tl-text">Serwer aktywny – 2 tygodnie rozgrywki</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-dot tl-dot-gold"></div>
+        <div class="tl-date">03.05.2026</div>
+        <div class="tl-text">🏆 Wielki Finał – Turniej PvP</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">Kustosz<span>MT2</span></div>
+    <p class="footer-tagline">Prywatny serwer Metin2 dla znajomych · Klasyczny klimat 2015</p>
+    <p class="footer-credit">Created by Erzkoy &amp; Lebron &bull; 2026</p>
+  </div>
+</footer>
+
+<script src="js/particles.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
