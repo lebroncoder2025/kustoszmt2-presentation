@@ -614,12 +614,111 @@ img { max-width: 100%; }
   color: var(--gold);
 }
 
+.city-foot {
+  margin-top: auto;
+  padding: 0.8rem 0.9rem;
+  border-left: 2px solid rgba(200,160,32,0.35);
+  background: rgba(200,160,32,0.06);
+  color: var(--txt-bright);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.route-overview {
+  margin-top: 2.4rem;
+}
+
+.route-overview-head {
+  text-align: center;
+  margin-bottom: 1.6rem;
+}
+
+.route-overview-head h3 {
+  color: var(--gold);
+  font-family: var(--ff-title);
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+.route-overview-head p {
+  max-width: 760px;
+  margin: 0 auto;
+  color: var(--txt-normal);
+  font-size: 0.9rem;
+}
+
+.route-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+
+.route-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(200,160,32,0.16);
+  padding: 1.4rem;
+  clip-path: polygon(12px 0%,100% 0%,calc(100% - 12px) 100%,0% 100%);
+  transition: transform var(--t-mid), border-color var(--t-mid), background var(--t-mid);
+}
+
+.route-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(200,160,32,0.42);
+  background: rgba(200,160,32,0.04);
+}
+
+.route-stage {
+  display: inline-block;
+  margin-bottom: 0.9rem;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--void);
+  background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+  clip-path: polygon(8px 0%,100% 0%,calc(100% - 8px) 100%,0% 100%);
+}
+
+.route-card h4 {
+  color: var(--gold);
+  font-size: 1.05rem;
+  margin-bottom: 0.55rem;
+}
+
+.route-card p {
+  color: var(--txt-normal);
+  font-size: 0.84rem;
+  margin-bottom: 0.8rem;
+}
+
+.route-list {
+  list-style: none;
+}
+
+.route-list li {
+  position: relative;
+  padding: 0.28rem 0 0.28rem 1rem;
+  color: var(--txt-bright);
+  font-size: 0.8rem;
+}
+
+.route-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+}
+
 @media (max-width: 800px) {
   .map-summary-grid {
     grid-template-columns: 1fr;
   }
 
   .city-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .route-grid {
     grid-template-columns: 1fr;
   }
 }
